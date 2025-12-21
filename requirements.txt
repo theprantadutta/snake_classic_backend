@@ -1,0 +1,36 @@
+# Core Framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
+
+# Database
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+pydantic[email]==2.10.3
+pydantic-settings==2.6.1
+
+# Firebase (Auth + FCM)
+firebase-admin==6.7.0
+google-auth==2.37.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Background Tasks
+apscheduler==3.10.4
+
+# HTTP Client
+httpx==0.28.1
+
+# WebSocket
+websockets==12.0
+
+# Utilities
+python-dotenv==1.0.1
+python-dateutil==2.9.0

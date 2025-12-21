@@ -1,0 +1,25 @@
+services:
+  snake-classic-backend:
+    build: .
+    container_name: snake-classic-backend
+    env_file:
+      - .env
+    environment:
+      - ENVIRONMENT=development
+    volumes:
+      - ./app:/app/app
+      - ./alembic:/app/alembic
+      - ./firebase-admin-sdk.json:/app/firebase-admin-sdk.json:ro
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.snakeclassic.rule=Host(`snakeclassic.pranta.dev`)"
+      - "traefik.http.routers.snakeclassic.entrypoints=websecure"
+      - "traefik.http.routers.snakeclassic.tls.certresolver=letsencrypt"
+      - "traefik.http.services.snakeclassic.loadbalancer.server.port=8393"
+
+networks:
+  proxy:
+    external: true
